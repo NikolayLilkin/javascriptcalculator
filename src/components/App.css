@@ -10,13 +10,49 @@
   color: white;
 }
 button{
-  width: 3rem;
-  height: 3rem;
-
+  width: 4.55rem;
+  height: 4.55rem;
+  border-radius: 1px !important;
 }
 .row{
   --bs-gutter-x:0;
 }
 #container{
-  width:280px;
+  max-width:320px;
 }
+#display{
+  border: 2.41px #535a99 solid;
+  border-bottom: 0px;
+  padding-right:5px;
+}
+#keys{
+  border: 2.41px #535a99 solid;
+}
+p{
+  margin-bottom: 0px !important;
+}
+.btn-primary, .btn-primary:visited{
+    background-color: #535a99 !important;
+    border-color: #535a99 !important;
+}
+.btn-primary:hover{
+  background-color: #313c9c !important;
+  border-color: #313c9c !important;
+}
+.btn-primary:active{
+  background-color: #132097 !important;
+  border-color: #132097 !important;
+}
+.btn-danger, .btn-danger:visited{
+  background-color: #8d1818 !important;
+  border-color: #8d1818 !important;
+}
+.btn-danger:hover{
+background-color: #bd2828 !important;
+border-color: #bd2828 !important;
+}
+.btn-danger:active{
+background-color: #e70505 !important;
+border-color: #e70505 !important;
+}
+

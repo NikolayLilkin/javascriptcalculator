@@ -1,3 +1,5 @@
+import {create, all} from 'mathjs';
+const math = create(all,{});
 const initialState = {
     num:"",
     printvalue:"",
@@ -11,86 +13,13 @@ const digitLimitError = (text) => {
         return false;
     }
 }
-const combineOperators = (one,two) => {
-    if(one==="-" && two==="-"){
-        return "+";
-    }
-    else if(one==="-" && two==="+"){
-        return "-";
-    }
-    else if(one==="+" && two==="-"){
-        return "-";
-    }
-    else if(one==="+" && two==="+"){
-        return "+";
-    }
-    else{
-        return "Error";
-    }
-}
 const calculate = (text) => {
-    let splited=text.split(/[-+x"/"%]+/);
-    let operators = [];
-    let result = 0;
-    let i = text.length - 1 ;
-    if(text[i]==="+" ||text[i]==="-" || text[i]==="/"|| text[i]==="x" || text[i]==="%") return "Error"; 
-    for (let index = 0; index < text.length-1; index++) {
-        if((text[index]==="+" ||text[index]==="-" || text[index]==="/"|| text[index]==="x" ||text[index]==="%") &&
-        (text[index+1]==="+" ||text[index+1]==="-" || text[index+1]==="/"|| text[index+1]==="x" ||text[index+1]==="%")){
-            let operator=combineOperators(text[index],text[index+1]);
-            if(operator==="Error") return "Error";
-            operators.push(operator);
-            index++;
-        }
-        else if(text[index]==="+" ||text[index]==="-" || text[index]==="/"|| text[index]==="x" ||text[index]==="%"){
-            operators.push(text[index]);
-        }
+    text = text.replace("x","*");
+    try {
+        return math.evaluate(text);
+    } catch (error) {
+        return "Syntax Error";
     }
-    console.log(operators);
-    console.log(splited);
-    if(operators.length===0 && splited.length===1 && splited[0]==="") return 0;
-    console.log(result);
-    if(operators.length===0 && splited.length===1){
-        return splited;
-    }
-    while(operators.length!==0){
-        if(operators[0]==="+"){
-            result = result + (parseFloat(splited[0]) + parseFloat(splited[1]));
-            splited.shift();
-            splited.shift();
-            operators.shift();
-        }
-        else if(operators[0]==="-"){
-            result = result + (parseFloat(splited[0]) - parseFloat(splited[1]));
-            splited.shift();
-            splited.shift();
-            operators.shift();
-        }
-        else if(operators[0]==="x"){
-            result = result + (parseFloat(splited[0]) * parseFloat(splited[1]));
-            splited.shift();
-            splited.shift();
-            operators.shift();
-        }
-        else if(operators[0]==="/"){
-            result = result + (parseFloat(splited[0]) / parseFloat(splited[1]));
-            splited.shift();
-            splited.shift();
-            operators.shift();
-        }
-        else if(operators[0]==="%"){
-            result = result + (parseFloat(splited[0]) % parseFloat(splited[1]));
-            splited.shift();
-            splited.shift();
-            operators.shift();
-        }
-        else{
-            splited.shift();
-            operators.shift();
-        }
-    }
-    return result;
-
 }
 
 const reducer = ( state = initialState, action) => {

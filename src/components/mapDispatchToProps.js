@@ -1,4 +1,4 @@
-import {one,two,three,four,five,six,seven,eight,nine,zero,plus,multiply,modulo,divide,ac,equal,comma} from './actions';
+import {one,two,three,four,five,six,seven,eight,nine,zero,plus,multiply,modulo,divide,ac,equal,comma, minus} from './actions';
 export const mapDispatchToProps = (dispatch) => {
     return {
         one: () => dispatch(one()),
@@ -12,6 +12,7 @@ export const mapDispatchToProps = (dispatch) => {
         nine: () => dispatch(nine()),
         zero: () => dispatch(zero()),
         plus: () => dispatch(plus()),
+        minus: () => dispatch(minus()),
         multiply: () => dispatch(multiply()),
         modulo: () => dispatch(modulo()),
         divide: () => dispatch(divide()),

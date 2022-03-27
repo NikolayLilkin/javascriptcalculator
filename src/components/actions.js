@@ -50,7 +50,7 @@ export const equal = () =>{
     return {type:"="}
 }
 export const comma = () =>{
-    return {type:","}
+    return {type:"."}
 }
 
 

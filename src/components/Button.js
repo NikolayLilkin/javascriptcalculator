@@ -9,7 +9,6 @@ class Button extends Component{
         this.change=this.change.bind(this);
     }
     change(){
-        console.log("You clicked on " + this.props.sign);
         switch (this.props.sign) {
             case "1":
                 this.props.one();
@@ -50,7 +49,7 @@ class Button extends Component{
             case "/":
                 this.props.divide();
                 break;
-            case "*":
+            case "x":
                 this.props.multiply();
                 break; 
             case "%":
@@ -59,7 +58,9 @@ class Button extends Component{
             case "=":
                 this.props.equal();
                 break;
-                               
+            case ".":
+                this.props.comma();
+                break;                   
             default:
                 break;
         }

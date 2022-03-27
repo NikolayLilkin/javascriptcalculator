@@ -13,7 +13,7 @@ class App extends Component{
         <div className="container" id="container">
             <div className="row" style={{height:70}} id="display">
               <p className='text-end' style={{height:35}}>{this.props.state.num}</p>
-              <p className='text-end'>{this.props.state.num}</p>  
+              <p className='text-end'>{this.props.state.printvalue}</p>  
             </div>
             <div className="d-flex flex-wrap" id="keys">
                 <ButtonDanger sign="AC" width="9.10rem"/>
@@ -32,7 +32,7 @@ class App extends Component{
                 <Button sign="3"/>
                 <Button sign="%"/>
                 <Button sign="0" width="9.10rem"/>
-                <Button sign=","/>
+                <Button sign="."/>
                 <Button sign="="/>
               </div>
             </div>
